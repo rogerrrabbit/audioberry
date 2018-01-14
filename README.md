@@ -27,16 +27,16 @@ curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scrip
 
 5. disable power-hungry elements
 5.1. in /boot/config.txt:
-# Disable the ACT LED.
+Disabling the ACT LED.
 dtparam=act_led_trigger=none
 dtparam=act_led_activelow=off
 
-# Disable the PWR LED.
+Disabling the PWR LED.
 dtparam=pwr_led_trigger=none
 dtparam=pwr_led_activelow=off
 
 5.2. in /etc/rc.local
-# Disable HDMI
+Disabling HDMI
 /usr/bin/tvservice -o
 
 6. install and configure shairport-sync

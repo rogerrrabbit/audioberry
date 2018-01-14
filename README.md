@@ -26,6 +26,7 @@ password=raspberry
 curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2samp.sh | bash
 
 5. disable power-hungry elements
+
 5.1. in /boot/config.txt:
 Disabling the ACT LED.
 dtparam=act_led_trigger=none

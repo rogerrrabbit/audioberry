@@ -1,0 +1,40 @@
+wpa_supplicant.conf:
+country=FR
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+ssid="SFR-5222"
+scan_ssid=1
+psk="vircaswakdokshubbav6"
+key_mgmt=WPA-PSK
+}
+
+(sudo raspi-config >> resize-fs)
+(sudo apt-get update)
+(sudo apt-get upgrade)
+(sudo apt-get -y install curl apt-transport-https)
+
+#auto-conf du DAC I2S
+curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2samp.sh | bash
+
+#installation de raspotify
+curl -sSL https://dtcooper.github.io/raspotify/key.asc | sudo apt-key add -v -
+echo 'deb https://dtcooper.github.io/raspotify jessie main' | sudo tee /etc/apt/sources.list.d/raspotify.list
+sudo apt-get update
+sudo apt-get -y install raspotify
+
+
+#installation de shairport-sync
+sudo apt-get -y install shairport-sync
+
+#installation de gmediarender
+(sudo apt-get -y install gstreamer1.0-alsa gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gmediarender)
+
+#configuration des noms affichés dans AirPlay/Spotify
+(sudo nano /etc/shairport-sync.conf)
+(sudo nano /etc/default/raspotify)
+
+(sudo systemctl enable gmediarender.service)
+(sudo systemctl enable raspotify.service)
+(sudo systemctl enable shairport-sync.service)

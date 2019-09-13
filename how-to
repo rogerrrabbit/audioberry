@@ -24,7 +24,6 @@ echo 'deb https://dtcooper.github.io/raspotify jessie main' | sudo tee /etc/apt/
 sudo apt-get update
 sudo apt-get -y install raspotify
 
-
 #installation de shairport-sync
 sudo apt-get -y install shairport-sync
 
@@ -38,3 +37,6 @@ sudo apt-get -y install shairport-sync
 (sudo systemctl enable gmediarender.service)
 (sudo systemctl enable raspotify.service)
 (sudo systemctl enable shairport-sync.service)
+
+#désactivation des logs
+sudo systemctl disable rsyslog

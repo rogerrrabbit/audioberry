@@ -1,0 +1,12 @@
+[Unit]
+Description=Audioberry Ready Sound Effect
+Requires=raspotify.service shairport-sync.service
+After=raspotify.service shairport-sync.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/aplay /home/pi/open.wav
+
+[Install]
+WantedBy=multi-user.target

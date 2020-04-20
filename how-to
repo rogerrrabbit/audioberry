@@ -34,9 +34,8 @@ sudo apt-get -y install shairport-sync
 (sudo nano /etc/shairport-sync.conf)
 (sudo nano /etc/default/raspotify)
 
-(sudo systemctl enable gmediarender.service)
-(sudo systemctl enable raspotify.service)
-(sudo systemctl enable shairport-sync.service)
+#désactivation du HDMI; ajouter cette ligne à /etc/rc.local
+/usr/bin/tvservice -o
 
 #désactivation des logs
 sudo systemctl disable rsyslog
